@@ -4,6 +4,10 @@
   "description": "React_Course_RSS(Task_1)",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server -d --port 4000 --hot --open",
+    "build_dev": "webpack -d",
+    "build_prod": "webpack -p",
+    "clean": "rm dist/bundle.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
