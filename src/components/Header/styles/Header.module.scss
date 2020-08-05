@@ -1,3 +1,7 @@
+$menuColor: #008966;
+$borderMenuColor: #007c5d;
+$activeMenu: #00bc8c;
+
 .header{
   display: flex;
   flex-direction: row;
@@ -6,4 +10,29 @@
   height: 50px;
   background: inherit;
   color: #fff;
+}
+.listContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+  flex-wrap: wrap;
+
+  border: 1px solid $borderMenuColor;
+  border-radius: 5px;
+  padding: 0;
+  overflow: hidden;
+  .listItem {
+    flex: auto;
+    text-align: center;
+    background-color: $menuColor;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // height: 30px;
+    // color: #ffffff;
+  }
+  .active {
+    background-color: $activeMenu
+  }
 }
