@@ -1,0 +1,24 @@
+@import '../../../index.scss';
+.listLi {
+  list-style: none;
+  &:hover {
+    cursor: pointer;
+    background-color: $hover;
+  }
+}
+.selectLi {
+  background-color: $error;
+  cursor: default;
+  &:hover {
+    cursor: default;
+    background-color: $error;
+  }
+}
+.win {
+  background-color: $winner;
+  cursor: default;
+  &:hover {
+    cursor: default;
+    background-color: $winner;
+  }
+}

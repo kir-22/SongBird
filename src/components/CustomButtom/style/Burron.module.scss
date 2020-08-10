@@ -1,0 +1,6 @@
+.noOutline {
+  box-shadow: none;
+  .noOutline:focus {
+    box-shadow: none;
+  }
+}
