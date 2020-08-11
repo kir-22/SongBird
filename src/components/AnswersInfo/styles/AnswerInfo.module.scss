@@ -1,6 +1,8 @@
 @import '../../../index.scss';
 .listLi {
+  
   list-style: none;
+  height: 50px;
   &:hover {
     cursor: pointer;
     background-color: $hover;

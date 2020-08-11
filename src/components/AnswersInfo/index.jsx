@@ -28,23 +28,28 @@ class index extends Component {
 
 
   selectedItem = data => {
-    // console.log('data: ', data);
     const { winAnswer, pointer } = this.state;
     const { answer } = this.props;
-    // console.log(answer.id === data.id || !!winAnswer);
     const _selectId = answer.id === data.id || !!winAnswer
       ? [...this.state.selectId]
       : [...new Set([...this.state.selectId, data.id])];
-    // console.log('_selectId: ', _selectId);
+    const yes = answer.id === data.id;
     this.setState({
       selectId: _selectId,
-      winAnswer: answer.id === data.id ? data.id : winAnswer,
+      winAnswer: yes ? data.id : winAnswer,
       infoData: data,
     }, () => {
-      !!this.state.winAnswer ? this.props.getRightAnswer(pointer) : null
+        !!this.state.winAnswer
+          ? this.props.getRightAnswer(pointer)
+          : null
     });
 
   };
+  getInfoData = data => {
+    this.setState({
+      infoData: data,
+    });
+  }
 
   render() {
     return (
@@ -53,7 +58,7 @@ class index extends Component {
           <div className="col-sm text-center">
             <Lists
               data={this.props.questions}
-              onClick={data => this.selectedItem(data)}
+              onClick={data => { !!this.state.winAnswer ? this.getInfoData(data) : this.selectedItem(data)}}
               checkedAnswers={this.state.selectId}
               winAnswer={this.state.winAnswer}
             />

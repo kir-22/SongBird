@@ -11,7 +11,7 @@ const Lists = ({ data, checkedAnswers = [], winAnswer, onClick }) => {
             <li
               key={i}
               onClick={() => onClick(el)}
-              className={`border-bottom ${ styles.listLi } ${ !!checked ? styles.selectLi : ''} ${!!winAnswer && el.id === winAnswer ? styles.win : ''}`}
+              className={`d-flex justify-content-center align-items-center border ${ styles.listLi } ${ !!checked ? styles.selectLi : ''} ${!!winAnswer && el.id === winAnswer ? styles.win : ''}`}
             >
               {el.name}
             </li>
