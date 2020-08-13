@@ -54,7 +54,7 @@ class index extends Component {
   render() {
     return (
       <div className="container">
-        <div className="row">
+        <div className="row pb-4">
           <div className="col-sm text-center">
             <Lists
               data={this.props.questions}
@@ -63,7 +63,7 @@ class index extends Component {
               winAnswer={this.state.winAnswer}
             />
           </div>
-          <div className="col-sm text-center ">
+          <div className="col-sm text-center">
             <Info
               data = {this.state.infoData}
             />

@@ -92,8 +92,9 @@ class App extends Component {
           menu={this.menu}
         />
         <Question
-          questions={this.state.birds}
+          questions={this.state.birds}//не нужно
           question={this.state.selectedItem}
+          disabledNextLevel={this.state.disabledNextLevel}
         />
         <AnswerInfo
           questions={this.state.birds}

@@ -3,7 +3,7 @@ import styles from '../styles/AnswerInfo.module.scss';
 
 const Lists = ({ data, checkedAnswers = [], winAnswer, onClick }) => {
   return (
-    <ul className="border border-secondary rounded p-0">
+    <ul className="border border-secondary rounded p-0 m-0">
       {
         data.map((el, i) => {
           const checked = checkedAnswers.some(element => element === el.id);

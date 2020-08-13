@@ -61,8 +61,8 @@ module.exports = {
         use: {
           loader: 'file-loader',//'url-loader',
           options: {
-            limit: 8192
-          }
+            outputPath: 'assets/images',
+          },
         }
       },
       {

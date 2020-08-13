@@ -1,6 +1,6 @@
 @import '../../../index.scss';
 .listLi {
-  
+
   list-style: none;
   height: 50px;
   &:hover {
@@ -23,4 +23,10 @@
     cursor: default;
     background-color: $winner;
   }
+}
+.image {
+  width: 200px;
+  height: 155px;
+  border-radius: 5px;
+  object-fit: cover;
 }
