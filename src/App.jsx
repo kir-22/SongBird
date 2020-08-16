@@ -63,7 +63,7 @@ class App extends Component {
 
   getRandomItem = () => {
     const index = Math.floor(Math.random() * Math.floor(6));
-    console.log('index: ', index, this.state.birds);
+    console.log('Правильный ответ: ', this.state.birds[index]);
     this.setState({
       selectedItem: this.state.birds[index],
     });
