@@ -221,7 +221,7 @@ const birdsData = [
       name: 'Лунь',
       species: 'Circus cyaneus',
       description: 'Лунь – это небольшой сокол. Питается в основном мышевидными грызунами, основа его рациона – полёвки, хомяки, мыши. Оперение луня может быть пепельно-серым. С такой птицей связано сравнение «седой, как лунь».',
-      image: 'https://live.staticflickr.com/65535/49322743903_32f3922d9e.jpg',
+      image: 'https://uabirds.org/photos/0566/001/05660000201.jpg',//'https://live.staticflickr.com/65535/49322743903_32f3922d9e.jpg',
       audio: 'https://www.xeno-canto.org/sounds/uploaded/BLMSIUFTFU/XC513498-190709_1175_Cir.cyan-f.mp3'
     },
     {
