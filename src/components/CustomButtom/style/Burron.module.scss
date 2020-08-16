@@ -1,0 +1,16 @@
+@import '../../../index.scss';
+.noOutline {
+  box-shadow: none;
+  .noOutline:focus {
+    box-shadow: none;
+  }
+}
+.green_bg {
+  background: $menuColor !important;
+  color: #ffffff !important;
+  border-color: $menuColor !important;
+  &:hover {
+    background: $activeMenu !important;
+    border-color: $activeMenu !important;
+  }
+}
