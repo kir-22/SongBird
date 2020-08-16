@@ -34,9 +34,11 @@ class index extends Component {
   };
 
   onError = () => {
+    this.errorRef.current.src = error;
     this.errorRef.current.play();
   }
   onWin = () => {
+    this.errorRef.current.src = win;
     this.winRef.current.play();
   }
 
