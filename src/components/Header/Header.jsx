@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import Logo from '../../assets/images/logo.svg';
 import styles from './styles/Header.module.scss';
 
 const Header = ({score = 0, menu = [], level = 0}) => {
     return (
       <div className='container'>
         <div className={styles.header}>
-          <div>SongBird</div>
+          <div>
+            <img src={Logo} width="200" height='100'/>
+          </div>
           <div>Score: { score }</div>
         </div>
         <ul className={styles.listContainer}>

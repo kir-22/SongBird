@@ -2,24 +2,9 @@ import React, { Component } from 'react';
 import imp from '../../../assets/images/bird.jpg';
 import styles from '../styles/AnswerInfo.module.scss'
 
-// class Info extends Component {
-//   render() {
-//     return (
-//       <div className="d-flex border border-secondary rounded p-2">
-//         <div className="">
-//           <img src={this.props.data.image} alt="Foto" width="200" height="200"/>
-//         </div>
-//         <div>
-
-//           {this.props.data.name}
-//         </div>
-//       </div>
-//     );
-//   }
-// }
 const Info = ({ data }) => {
   return (
-    <div className="d-flex border border-secondary rounded p-2 pl-4 pr-4 h-100">
+    <div className={`d-flex border border-secondary rounded p-2 pl-4 pr-4 h-100 ${styles.bg}`}>
       <div className="row">
         {
           !data

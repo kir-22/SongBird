@@ -66,6 +66,15 @@ module.exports = {
         }
       },
       {
+        test: /\.mp3$/,
+        use: {
+          loader: 'file-loader',//'url-loader',
+          options: {
+            outputPath: 'assets/audio',
+          },
+        }
+      },
+      {
         test: /\.(woff|woff2|eof|ttf|otf)$/,
         use: 'file-loader'
       },

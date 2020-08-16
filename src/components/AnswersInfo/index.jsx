@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import Lists from './components/Lists.jsx';
 import Info from './components/Info.jsx';
+import error from '../../assets/audio/error.mp3';
+import win from '../../assets/audio/win.mp3';
 import style from './styles/AnswerInfo.module.scss';
 
 class index extends Component {
+  constructor(props){
+    super(props);
+    this.errorRef = React.createRef();
+    this.winRef = React.createRef();
+  };
   state = {
     selectId: [],
-    pointer: 10,
+    pointer: 5,
     winAnswer: false,
     infoData: false,
   };
@@ -19,13 +26,19 @@ class index extends Component {
       this.setState({
         winAnswer: false,
         infoData: false,
-        pointer: 10,
+        pointer: 5,
         selectId: [],
       });
     }
 
   };
 
+  onError = () => {
+    this.errorRef.current.play();
+  }
+  onWin = () => {
+    this.winRef.current.play();
+  }
 
   selectedItem = data => {
     const { winAnswer, pointer } = this.state;
@@ -34,13 +47,16 @@ class index extends Component {
       ? [...this.state.selectId]
       : [...new Set([...this.state.selectId, data.id])];
     const yes = answer.id === data.id;
+    answer.id === data.id 
+      ? this.onWin()
+      : this.onError();
     this.setState({
       selectId: _selectId,
       winAnswer: yes ? data.id : winAnswer,
       infoData: data,
     }, () => {
         !!this.state.winAnswer
-          ? this.props.getRightAnswer(pointer)
+          ? this.props.getRightAnswer(pointer - this.state.selectId.length)
           : null
     });
 
@@ -55,7 +71,7 @@ class index extends Component {
     return (
       <div className="container">
         <div className="row pb-4">
-          <div className="col-sm text-center">
+          <div className="col-sm text-center mb-2">
             <Lists
               data={this.props.questions}
               onClick={data => { !!this.state.winAnswer ? this.getInfoData(data) : this.selectedItem(data)}}
@@ -63,12 +79,14 @@ class index extends Component {
               winAnswer={this.state.winAnswer}
             />
           </div>
-          <div className="col-sm text-center">
+          <div className="col-sm text-center mb-2">
             <Info
               data = {this.state.infoData}
             />
           </div>
         </div>
+        <audio ref={this.errorRef} src={error} hidden/>
+        <audio ref={this.winRef} src={win} hidden/>
       </div>
     );
   }

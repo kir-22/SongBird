@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Question from './components/Question/Question';
 import AnswerInfo from './components/AnswersInfo/index.jsx';
 import CustomButton from './components/CustomButtom/CustomButton.jsx';
+import GameOver from './components/GameOver/GameOver.jsx';
 import './index.scss';
 import Birds from './data/data.js';
 
@@ -53,6 +54,7 @@ class App extends Component {
     birds: Birds[0],
     selectedItem: null,
     disabledNextLevel: true,
+    gameOver: false,
   };
   componentDidMount() {
     console.log(Birds);
@@ -80,8 +82,31 @@ class App extends Component {
     this.setState({
       score: Math.floor(this.state.score + value),
       disabledNextLevel: false,
+    }, () => {
+      this.state.level === (Birds.length - 1) 
+        ? this.onGameOver()
+        : false 
     });
   };
+
+  onGameOver = () => {
+    this.setState({
+      gameOver: true,
+    });
+  }
+
+  onReloadGame = () => {
+    this.setState({
+      score: 0,
+      level: 0,
+      birds: Birds[0],
+      selectedItem: null,
+      disabledNextLevel: true,
+      gameOver: false,
+    }, () => this.getRandomItem());
+  }
+
+
 
   render() {
     return (
@@ -91,20 +116,28 @@ class App extends Component {
           level={this.state.level}
           menu={this.menu}
         />
-        <Question
-          questions={this.state.birds}//не нужно
-          question={this.state.selectedItem}
-          disabledNextLevel={this.state.disabledNextLevel}
-        />
-        <AnswerInfo
-          questions={this.state.birds}
-          answer={this.state.selectedItem}
-          getRightAnswer={ point => this.changeScore(point) }
-        />
-        <CustomButton
-          onClick={() => { this.next() }}
-          disabled={this.state.disabledNextLevel}
-        />
+        {
+          !this.state.gameOver 
+            ? <>
+                <Question
+                  questions={this.state.birds}//не нужно
+                  question={this.state.selectedItem}
+                  disabledNextLevel={this.state.disabledNextLevel}
+                />
+                <AnswerInfo
+                  questions={this.state.birds}
+                  answer={this.state.selectedItem}
+                  getRightAnswer={ point => this.changeScore(point) }
+                />
+                <CustomButton
+                  onClick={() => { this.next() }}
+                  disabled={this.state.disabledNextLevel}
+                  text={'Next level'}
+                />
+            </>
+            : <GameOver maxScore={30} score={this.state.score} onReload = {() => this.onReloadGame()} />
+        }
+        
       </div>
     );
   }

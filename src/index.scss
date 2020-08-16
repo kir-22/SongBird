@@ -4,6 +4,7 @@ $activeMenu: #00bc8c;
 $hover: #6c757d;
 $winner: $activeMenu;
 $error: #ff0000;
+$bg_block: #303030;
 
 .app {
   width: 100vw;
@@ -14,4 +15,8 @@ $error: #ff0000;
 }
 hr{
   background-color: #555;
+}
+
+.block_bg {
+  background: $bg_block;
 }

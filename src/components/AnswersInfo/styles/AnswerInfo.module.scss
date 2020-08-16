@@ -8,6 +8,17 @@
     background-color: $hover;
   }
 }
+.circle {
+  display: flex;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: $hover;
+  margin-right: 20px;
+}
+.bg {
+  background: $bg_block,
+}
 .selectLi {
   background-color: $error;
   cursor: default;
@@ -16,6 +27,7 @@
     background-color: $error;
   }
 }
+
 .win {
   background-color: $winner;
   cursor: default;
